@@ -24,10 +24,39 @@ router.get('/', async function (req, res) {
             limit: pageSize,
             offset: offset
         }
-        if (query && query.title) {
+        // 意向岗位类型
+        if (query && query.jobType) {
+            if (!condition.where) {
+                condition.where = {};
+            }
+            condition.where.jobType = query.jobType;
+        }
+        // 职位发布学院
+        if (query && query.fromCollege) {
+            if (!condition.where) {
+                condition.where = {};
+            }
+            condition.where.fromCollege = query.fromCollege;
+        }
+        // 要求最低学历
+        if (query && query.degree) {
+            if (!condition.where) {
+                condition.where = {};
+            }
+            condition.where.degree = query.degree;
+        }
+        // 有无笔试环节
+        if (query && query.haveWrittenExam) {
+            if (!condition.where) {
+                condition.where = {};
+            }
+            condition.where.haveWrittenExam = query.haveWrittenExam;
+        }
+        // 岗位名称
+        if (query && query.name) {
             condition.where = {
                 title: {
-                    [Op.like]: `%${query.title}%`
+                    [Op.like]: `%${query.name}%`
                 }
             }
         }
