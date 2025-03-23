@@ -55,7 +55,7 @@ router.get('/', async function (req, res) {
         // 岗位名称
         if (query && query.name) {
             condition.where = {
-                title: {
+                name: {
                     [Op.like]: `%${query.name}%`
                 }
             }
