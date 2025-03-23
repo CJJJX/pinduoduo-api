@@ -27,6 +27,7 @@ router.get('/', async function (req, res) {
             limit: pageSize,
             offset: offset
         }
+        // 按求职标题进行搜索
         if (query && query.title) {
             condition.where = {
                 title: {
