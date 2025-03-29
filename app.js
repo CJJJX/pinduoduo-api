@@ -14,6 +14,7 @@ const jobsRouter = require("./routes/job");
 const userInfoRouter = require("./routes/userInfo");
 const resumesRouter = require("./routes/resume");
 const sendRouter = require("./routes/send");
+const chatRouter = require("./routes/chat");
 const app = express();
 // 413 payload 请求体超过大小限制处理
 app.use(express.json({ limit: "50mb" })); // 设置为 50MB
@@ -55,4 +56,5 @@ app.use("/publish", jobsRouter);
 app.use("/userInfo", userInfoRouter);
 app.use("/resume", resumesRouter);
 app.use("/send", sendRouter);
+app.use("/chat",chatRouter);
 module.exports = app;
